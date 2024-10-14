@@ -1,1 +1,87 @@
-import java.util.Scanner;;
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class Tugas2 {
+
+    public static void main(String[] args) {
+        try (Scanner input = new Scanner(System.in)) {
+            System.out.println("|=========================================|");
+            System.out.println("|                                         |");
+            System.out.println("|>>>     APLIKASI RESERVASI WISATA     <<<|");
+            System.out.println("|                                         |");
+            System.out.println("|=========================================|");
+
+            System.out.print("Masukan Nama Anda: ");
+            String nama = input.nextLine();
+
+            System.out.print("Masukan  Jumlah Orang: ");
+            int jumlahOrang = input.nextInt();
+
+            System.out.println("Pilih Paket Wisata: ");
+            System.out.println("1. Gunung");
+            System.out.println("2. Pantai");
+            System.out.println("3. Kota");
+            System.out.print("Masukan Pilihan WIsata: ");
+            int pilihanWisata = input.nextInt();
+
+            System.out.print("Apakah Anda Memerlukan Pemandu Wisata? (true/false): ");
+            boolean PemanduWisata = input.nextBoolean();
+
+            double biayaPemandu = 100000;
+            double hargaPerOrang;
+
+            String tujuanWisata = "";
+
+            switch (pilihanWisata) {
+                case 1:
+                    tujuanWisata = "Gunung";
+                    hargaPerOrang = 50000;
+                    break;
+                case 2:
+                    tujuanWisata = "Pantai";
+                    hargaPerOrang = 30000;
+                    break;
+                case 3:
+                    tujuanWisata = "Kota";
+                    hargaPerOrang = 40000;
+                    break;
+                default:
+                    System.out.println("Piliham Tidak Valid");
+                    return;
+            }
+
+            ArrayList<String> fasilitas = new ArrayList<>();
+            ArrayList<Integer> harga = new ArrayList<>();
+
+            fasilitas.add("Transportasi");
+            fasilitas.add("Konsumsi");
+            fasilitas.add("Tempat Penginapan");
+
+            harga.add(50000);
+            harga.add(75000);
+            harga.add(120000);
+
+            System.out.println("\nFasilitas yang disertakan Beserta Harganya");
+            for (int i = 0; i < fasilitas.size(); i++) {
+                System.out.println("- " + fasilitas.get(i) + ": Rp" + harga.get(i));
+            }
+            int totalBiayaFasilitas = 0;
+            for (int hargaTotal : harga){
+                totalBiayaFasilitas += hargaTotal;
+            }
+            double totalBiaya = (hargaPerOrang * jumlahOrang) + totalBiayaFasilitas;
+            if (PemanduWisata) {
+                totalBiaya += biayaPemandu;
+            }
+            System.out.println("Nama: " + nama);
+            System.out.println("Tujuan Wisata: " + tujuanWisata);
+            System.out.println("Jumlah Orang: " + jumlahOrang);
+            System.out.println("Biaya Per Orang: " + hargaPerOrang);
+            System.out.println("Pemandu Wisata: " + (PemanduWisata ? "Ya" : "Tidak"));
+            System.out.println("Total Biaya Fasilitas: " + totalBiayaFasilitas);
+            System.out.println("Total Biaya: " + totalBiaya);
+        }
+
+
+    }
+}
