@@ -1,6 +1,5 @@
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Tugas2 {
 
@@ -10,19 +9,19 @@ public class Tugas2 {
             //Judul Aplikasi.
             System.out.println("|=========================================|");
             System.out.println("|>>                                     <<|");
-            System.out.println("|>       APLIKASI RESERVASI WISATA       <|");
-            System.out.println("|>>                                     <<|");
+            System.out.println("|>          HEALING RESERVATION          <|");
+            System.out.println("|>>         << PT Faiz Nation >>        <<|");
             System.out.println("|=========================================|");
             System.out.println(" ");
             System.out.println("<<<=====================================>>> ");
             System.out.println(" ");
             
             //Pengguna Memasukan Nama (Menggunakan String).
-            System.out.print("Masukan Nama Anda: " );
+            System.out.print("Masukan Nama Anda   : " );
             String nama = input.nextLine();
 
             //Pengguna Memasukan Jumlah Orang yang Ikut Wisata (Menggunakan int).
-            System.out.print("Masukan  Jumlah Orang: ");
+            System.out.print("Masukan Jumlah Orang: ");
             int jumlahOrang = input.nextInt();
 
             //Pilihan Paket Wisata Beserta Harga Per Orang.
@@ -32,11 +31,11 @@ public class Tugas2 {
             System.out.println("|=========================================|");
             System.out.println("| NO |  Paket Wisata  |  Harga Per Orang  |");
             System.out.println("|-----------------------------------------|");
-            System.out.println("| 1. |     Gunung     |       50000       |");
-            System.out.println("| 2. |     Pantai     |       30000       |");
-            System.out.println("| 3. |      Kota      |       40000       |");
+            System.out.println("| 1. | Paket Exclusive|      100000       |");
+            System.out.println("| 2. | Paket Simple   |       70000       |");
+            System.out.println("| 3. | Paket Murah    |       50000       |");
             System.out.println("|=========================================|");
-            System.out.print("Masukan Pilihan WIsata: ");// Pengguna Memillih Paket Wisata.
+            System.out.print("Masukan Paket WIsata: ");// Pengguna Memillih Paket Wisata.
             int pilihanWisata = input.nextInt();//Menggunakan int.
 
             //Variabel.
@@ -44,19 +43,19 @@ public class Tugas2 {
             double hargaPerOrang;//variabel untuk harga per orang menggunakan double.
             switch (pilihanWisata) {//switch case untuk memilih tujuan wisata.
                 case 1:
-                    tujuanWisata = "Gunung";
-                    hargaPerOrang = 50000;
+                    tujuanWisata = "Paket Exclusive";
+                    hargaPerOrang = 100000;
                     break;
                 case 2:
-                    tujuanWisata = "Pantai";
-                    hargaPerOrang = 30000;
+                    tujuanWisata = "Paket Simple";
+                    hargaPerOrang = 70000;
                     break;
                 case 3:
-                    tujuanWisata = "Kota";
-                    hargaPerOrang = 40000;
+                    tujuanWisata = "Paket Murah";
+                    hargaPerOrang = 50000;
                     break;
                 default:
-                    System.out.println("Piliham Tidak Valid");
+                    System.out.println("Pilihan Tidak Valid");
                     return;// keluar dari program jika pilihan tidak valid.
             }
 
@@ -72,21 +71,21 @@ public class Tugas2 {
             ArrayList<Integer> harga = new ArrayList<>();
 
             //ArrayList String.
-            fasilitas.add("Transportasi");
-            fasilitas.add("Konsumsi");
-            fasilitas.add("Tempat Penginapan");
+            fasilitas.add("Gunung");
+            fasilitas.add("Pantai");
+            fasilitas.add("Kota");
 
             //ArrayList Integer.
             harga.add(50000);
-            harga.add(75000);
-            harga.add(120000);
+            harga.add(35000);
+            harga.add(25000);
 
             //Daftar fasilitas yang disediakan.
             System.out.println(" ");
             System.out.println("|>>>===================================<<<|");
             System.out.println(" ");
             System.out.println("|=========================================|");
-            System.out.println("|>      Fasilitas yang disediakan:       <|");
+            System.out.println("|> Daftar Destinasi dan Harga Per Orang: <|");
             System.out.println("|=========================================|");
 
             //Menampilkan Daftar Fasilitas.
@@ -95,28 +94,45 @@ public class Tugas2 {
             }
 
             System.out.println("|=========================================|");
+            System.out.print("Masukan tujuan destinasi wisata: ");
+            int destinasiPilihan = input.nextInt();
+
+            String tujuanDestinasi;
+            double hargaDestinasi;
+            switch (destinasiPilihan) {
+                case 1:
+                    tujuanDestinasi = "Gunung";
+                    hargaDestinasi = 50000;
+                    break;
+                case 2:
+                    tujuanDestinasi = "Pantai";
+                    hargaDestinasi = 35000;
+                    break;
+                case 3:
+                    tujuanDestinasi = "Kota";
+                    hargaDestinasi = 25000;
+                    break;
+                default:
+                    System.out.println("Pilihan tidak valid");
+                    return;
+            }
+            
+            
 
             //Menghitung biaya fasilita yang dipilih.
-            int totalBiayaFasilitas = 0;
-            List<String> fasilitasDipilih = new ArrayList<>();
-            for (int i = 0; i < fasilitas.size(); i++){
-                //Pengguna memilih fasilitas yang ingin dipilih.
-                System.out.print("Apakah Anda Ingin Menggunakan Tambahan Fasilitas " + fasilitas.get(i) + "? (true/false): ");
-                boolean pilihanFasilitas = input.nextBoolean();//Menggunakan booelan.
-                if (pilihanFasilitas == true) {
-                    fasilitasDipilih.add(fasilitas.get(i));
-                    totalBiayaFasilitas += harga.get(i);
-                }
-            }
-
+            
+            
+            double totalPaketSemuaOrang = hargaPerOrang * jumlahOrang;
+            double totalHargaDestinasi = hargaDestinasi * jumlahOrang;
             //Menghitung total biaya keseluruhan.
-            double totalBiaya = (hargaPerOrang * jumlahOrang) + totalBiayaFasilitas;//Menggunakan double.
+            double totalBiaya = (hargaPerOrang * jumlahOrang) + (hargaDestinasi * jumlahOrang);//Menggunakan double.
 
             //Jika menggunakan pemandu wisata maka total biaya keseluruhan ditambah biaya pemandu.
             if (PemanduWisata) {
                 totalBiaya += biayaPemandu;
             }
 
+            
             //Menampilkan detail rician.
             System.out.println(" ");
             System.out.println("|>>>===================================<<<|");
@@ -124,15 +140,17 @@ public class Tugas2 {
             System.out.println("|=========================================|");
             System.out.println("|>             Detail Rincian            <|");
             System.out.println("|=========================================|");
-            System.out.println("Nama: " + nama);
-            System.out.println("Tujuan Wisata: " + tujuanWisata);
-            System.out.println("Jumlah Orang: " + jumlahOrang);
-            System.out.println("Biaya Per Orang: " + hargaPerOrang);
-            System.out.println("Pemandu Wisata: " + (PemanduWisata ? "Ya" : "Tidak"));
-            System.out.println("Fasilitas yang Dipilih: " + fasilitasDipilih);
-            System.out.println("Total Biaya Fasilitas: " + totalBiayaFasilitas);
+            System.out.println("|Nama                     : " + nama);
+            System.out.println("|Paket Wisata             : " + tujuanWisata);
+            System.out.println("|Jumlah Orang             : " + jumlahOrang);
+            System.out.println("|Total Harga Paket        : " + totalPaketSemuaOrang);
+            System.out.println("|Biaya Paket Per Orang    : " + hargaPerOrang);
+            System.out.println("|Pemandu Wisata           : " + (PemanduWisata ? "Ya" : "Tidak"));
+            System.out.println("|Tujuan Destinasi         : " + tujuanDestinasi);
+            System.out.println("|Biaya Destinasi per Orang: " + hargaDestinasi);
+            System.out.println("|Total Harga Destinasi    : " + totalHargaDestinasi);
             System.out.println("|=========================================|");
-            System.out.println("Total Biaya Keseluruhan: " + totalBiaya);
+            System.out.println("|Biaya Keseluruhan    : " + totalBiaya);
             System.out.println("|=========================================|");
             System.out.println("|             BY FAIZ NATION              |");
             System.out.println("|=========================================|");
