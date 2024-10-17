@@ -24,6 +24,9 @@ public class Tugas2 {
             System.out.print("Masukan Jumlah Orang: ");
             int jumlahOrang = input.nextInt();
 
+            System.out.print("Masukan Budget Anda : ");
+            boolean butgetAnda = input.nextBoolean();
+
             //Pilihan Paket Wisata Beserta Harga Per Orang.
             System.out.println(" ");
             System.out.println("|=========================================|");
@@ -36,22 +39,22 @@ public class Tugas2 {
             System.out.println("| 3. | Paket Murah    |       50000       |");
             System.out.println("|=========================================|");
             System.out.print("Masukan Paket WIsata: ");// Pengguna Memillih Paket Wisata.
-            int pilihanWisata = input.nextInt();//Menggunakan int.
+            int pilihanPaketWisata = input.nextInt();//Menggunakan int.
 
             //Variabel.
-            String tujuanWisata;//variabel untuk tujuan wisata menggunakan string.
+            String paketWisata;//variabel untuk tujuan wisata menggunakan string.
             double hargaPerOrang;//variabel untuk harga per orang menggunakan double.
-            switch (pilihanWisata) {//switch case untuk memilih tujuan wisata.
+            switch (pilihanPaketWisata) {//switch case untuk memilih tujuan wisata.
                 case 1:
-                    tujuanWisata = "Paket Exclusive";
+                    paketWisata = "Paket Exclusive";
                     hargaPerOrang = 100000;
                     break;
                 case 2:
-                    tujuanWisata = "Paket Simple";
+                    paketWisata = "Paket Simple";
                     hargaPerOrang = 70000;
                     break;
                 case 3:
-                    tujuanWisata = "Paket Murah";
+                    paketWisata = "Paket Murah";
                     hargaPerOrang = 50000;
                     break;
                 default:
@@ -61,8 +64,8 @@ public class Tugas2 {
 
             //Menanyakan kepada pengguna apakah mebutuhkan pemandau wisata? jika iya true jika tidak false.
             System.out.print("Apakah Anda Memerlukan Pemandu Wisata? (true/false): ");
-            boolean PemanduWisata = input.nextBoolean();//menggunakan boolean.
-            double biayaPemandu = 100000;//biaya pemandu jika menggunakan pemandu (menggunakan double).
+            boolean PemanduWisata = input.nextBoolean(); //menggunakan boolean.
+            double biayaPemandu = 100000; //biaya pemandu jika menggunakan pemandu (menggunakan double).
 
             System.out.println(" ");
 
@@ -116,16 +119,25 @@ public class Tugas2 {
                     System.out.println("Pilihan tidak valid");
                     return;
             }
-            
-            
+            boolean adaRekomendasi = false;
+            // Jika Tidak Ada Rekomendasi
+            if (adaRekomendasi) {
+                System.out.println("Maaf, tidak ada paket dan destinasi yang sesuai dengan budget Anda.");
+                return;
+            }
 
-            //Menghitung biaya fasilita yang dipilih.
-            
-            
-            double totalPaketSemuaOrang = hargaPerOrang * jumlahOrang;
+            double totalHargaPaket = hargaPerOrang * jumlahOrang;
             double totalHargaDestinasi = hargaDestinasi * jumlahOrang;
             //Menghitung total biaya keseluruhan.
             double totalBiaya = (hargaPerOrang * jumlahOrang) + (hargaDestinasi * jumlahOrang);//Menggunakan double.
+
+                    if (totalBiaya <= butgetAnda) {
+                        adaRekomendasi = true;
+                        System.out.printf("Paket: %s, Destinasi: %s, Total Biaya: Rp %.2f\n", 
+                                          paketWisata, fasilitas, totalBiaya);
+                    }
+                
+            
 
             //Jika menggunakan pemandu wisata maka total biaya keseluruhan ditambah biaya pemandu.
             if (PemanduWisata) {
@@ -141,16 +153,17 @@ public class Tugas2 {
             System.out.println("|>             Detail Rincian            <|");
             System.out.println("|=========================================|");
             System.out.println("|Nama                     : " + nama);
-            System.out.println("|Paket Wisata             : " + tujuanWisata);
             System.out.println("|Jumlah Orang             : " + jumlahOrang);
-            System.out.println("|Total Harga Paket        : " + totalPaketSemuaOrang);
-            System.out.println("|Biaya Paket Per Orang    : " + hargaPerOrang);
+            System.out.println("|Paket Wisata             : " + paketWisata);
+            System.out.println("|Biaya Paket Per Orang    : Rp " + hargaPerOrang);
+            System.out.println("|Total Harga Paket        : Rp " + totalHargaPaket);
             System.out.println("|Pemandu Wisata           : " + (PemanduWisata ? "Ya" : "Tidak"));
+            System.out.println("|Biaya Pemandu            : Rp " + (PemanduWisata ? biayaPemandu : 0));
             System.out.println("|Tujuan Destinasi         : " + tujuanDestinasi);
-            System.out.println("|Biaya Destinasi per Orang: " + hargaDestinasi);
-            System.out.println("|Total Harga Destinasi    : " + totalHargaDestinasi);
+            System.out.println("|Biaya Destinasi per Orang: Rp " + hargaDestinasi);
+            System.out.println("|Total Harga Destinasi    : Rp " + totalHargaDestinasi);
             System.out.println("|=========================================|");
-            System.out.println("|Biaya Keseluruhan    : " + totalBiaya);
+            System.out.println("|Biaya Keseluruhan        : Rp " + totalBiaya);
             System.out.println("|=========================================|");
             System.out.println("|             BY FAIZ NATION              |");
             System.out.println("|=========================================|");
