@@ -24,9 +24,6 @@ public class Tugas2 {
             System.out.print("Masukan Jumlah Orang: ");
             int jumlahOrang = input.nextInt();
 
-            System.out.print("Masukan Budget Anda : ");
-            boolean butgetAnda = input.nextBoolean();
-
             //Pilihan Paket Wisata Beserta Harga Per Orang.
             System.out.println(" ");
             System.out.println("|=========================================|");
@@ -131,11 +128,6 @@ public class Tugas2 {
             //Menghitung total biaya keseluruhan.
             double totalBiaya = (hargaPerOrang * jumlahOrang) + (hargaDestinasi * jumlahOrang);//Menggunakan double.
 
-                    if (totalBiaya <= butgetAnda) {
-                        adaRekomendasi = true;
-                        System.out.printf("Paket: %s, Destinasi: %s, Total Biaya: Rp %.2f\n", 
-                                          paketWisata, fasilitas, totalBiaya);
-                    }
                 
             
 
