@@ -2,7 +2,6 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class uts {
-
     public static void main(String[] args) {
         try (Scanner input = new Scanner(System.in)) {
 
@@ -46,7 +45,7 @@ public class uts {
             //Variabel.
             String paketWisata;//variabel untuk tujuan wisata menggunakan string.
             double hargaPerOrang;//variabel untuk harga per orang menggunakan double.
-            switch (pilihanPaketWisata) {//switch case untuk memilih tujuan wisata.
+            switch (pilihanPaketWisata) {//switch case untuk memilih paket wisata.
                 case 1:
                     paketWisata = "Paket Exclusive";
                     hargaPerOrang = 100000;
@@ -71,21 +70,21 @@ public class uts {
 
             System.out.println(" ");
 
-            //Array untuk menambahkan pilihan failitas yang mungkin dibutuhkan pengguna.
-            ArrayList<String> fasilitas = new ArrayList<>();
+            //Array untuk menambahkan pilihan destinasi yang ingin dipiih pengguna.
+            ArrayList<String> destinasi = new ArrayList<>();
             ArrayList<Integer> harga = new ArrayList<>();
 
             //ArrayList String.
-            fasilitas.add("Gunung");
-            fasilitas.add("Pantai");
-            fasilitas.add("Kota");
+            destinasi.add("Gunung");
+            destinasi.add("Pantai");
+            destinasi.add("Kota");
 
             //ArrayList Integer.
             harga.add(50000);
             harga.add(35000);
             harga.add(25000);
 
-            //Daftar fasilitas yang disediakan.
+            //Daftar destinasi yang disediakan.
             System.out.println(" ");
             System.out.println("|>>>===========================================================<<<|");
             System.out.println(" ");
@@ -93,14 +92,15 @@ public class uts {
             System.out.println("|>             Daftar Destinasi dan Harga Per Orang:             <|");
             System.out.println("|=================================================================|");
 
-            //Menampilkan Daftar Fasilitas.
-            for (int i = 0; i < fasilitas.size(); i++) {
-                System.out.println("|" + (i + 1) + ". " + fasilitas.get(i) + ": Rp " + harga.get(i));
+            //Menampilkan Daftar destinassi.
+            for (int i = 0; i < destinasi.size(); i++) {
+                System.out.println("|" + (i + 1) + ". " + destinasi.get(i) + ": Rp " + harga.get(i));
             }
 
             System.out.println("|=================================================================|");
             System.out.print("Masukan nomor tujuan destinasi wisata: ");
             int destinasiPilihan = input.nextInt();//Pengguna memasukan pilihan destinasi.
+
             //Variabel
             String tujuanDestinasi;//Variabel untuk tujuan destinasi.
             double hargaDestinasi;//Variabel untuk harga destinasi.
@@ -121,6 +121,7 @@ public class uts {
                     System.out.println("Pilihan tidak valid");
                     return;
             }
+
             //Menghitung total harga paket.
             double totalHargaPaket = hargaPerOrang * jumlahOrang;
             //Menghitung total harga destinasi.
@@ -128,15 +129,11 @@ public class uts {
             //Menghitung total biaya keseluruhan.
             double totalBiaya = (hargaPerOrang * jumlahOrang) + (hargaDestinasi * jumlahOrang);//Menggunakan double.
 
-                
-            
-
             //Jika menggunakan pemandu wisata maka total biaya keseluruhan ditambah biaya pemandu.
             if (PemanduWisata) {
                 totalBiaya += biayaPemandu;
             }
 
-            
             //Menampilkan detail rician.
             System.out.println(" ");
             System.out.println("|>>>===========================================================<<<|");
