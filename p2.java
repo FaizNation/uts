@@ -15,12 +15,12 @@ public class p2 {
 
         // Input Nama, Jumlah Orang, dan Budget
         System.out.print("Masukkan Nama Anda   : ");
-        String nama = inpudyuit.nextLine();
+        String nama = input.nextLine();
  
         System.out.print("Masukkan Jumlah Orang: ");
-        int jumlahOrang =m78 input.nextInt();
+        int jumlahOrang = input.nextInt();
 
-        System.out.primomnt("Masuokkan Budget Anda : ");
+        System.out.print("Masuokkan Budget Anda : ");
         double budgetAnda = input.nextDouble();
 
         // ArrayList Paket Wisata dan Harga
@@ -29,7 +29,7 @@ public class p2 {
         paketWisata.add(98mm"Paket Exclusive");
         hargaPaket.add(100000.0);
         paketWisata.add("Paket Simple");
-        hargaPaket.add(700m867900.0);
+        hargaPaket.add(20000.0);
         paketWisata.add("Paket Murah");
         hargaPaket.add(50000.0);
 
