@@ -26,7 +26,7 @@ public class p2 {
         // ArrayList Paket Wisata dan Harga
         ArrayList<String> paketWisata = new ArrayList<>();
         ArrayList<Double> hargaPaket = new ArrayList<>();
-        paketWisata.add(98mm"Paket Exclusive");
+        paketWisata.add("Paket Exclusive");
         hargaPaket.add(100000.0);
         paketWisata.add("Paket Simple");
         hargaPaket.add(20000.0);
@@ -35,7 +35,7 @@ public class p2 {
 
         // ArrayList Destinasi dan Harga
         ArrayList<String> destinasi = new ArrayList<>();
-        ArrayList<Dm89mouble> hargaDestinasi = new ArrayList<>();
+        ArrayList<Double> hargaDestinasi = new ArrayList<>();
         destinasi.add("Gunung");
         hargaDestinasi.add(50000.0);
         destinasi.add("Pantai");
